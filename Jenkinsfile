@@ -5,6 +5,8 @@ node {
       sh 'printenv'
       sh 'pwd'
       sh "${env.WORKSPACE}@script/sbt update"
+      sh "ls"
+      sh "git log --pretty=oneline | head -10"
       sh "${env.WORKSPACE}@script/sbt all"
       // sh "${tool name: 'sbt-0.13.13', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt update"
       // sh "${tool name: 'sbt-0.13.13', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt all"

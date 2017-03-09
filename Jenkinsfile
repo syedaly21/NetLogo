@@ -1,11 +1,13 @@
 node {
   stage('Build') {
     checkout scm
+    sh 'git submodule update --init'
     sh "./sbt update"
     sh "./sbt all"
   }
   stage('Test') {
     checkout scm
+    sh 'git submodule update --init'
     sh "./sbt depend"
     sh "./sbt headless/depend"
     sh "./sbt netlogo/test:fast"
